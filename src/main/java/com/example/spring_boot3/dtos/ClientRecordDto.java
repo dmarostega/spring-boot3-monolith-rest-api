@@ -1,11 +1,10 @@
 package com.example.spring_boot3.dtos;
 
-import java.math.BigDecimal;
-
+import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record ProductRecordDto(@NotBlank String name,@NotNull BigDecimal value) 
+public record ClientRecordDto(@NotBlank String name, @NotNull Integer docNumber, LocalDate birthday) 
 {
 }

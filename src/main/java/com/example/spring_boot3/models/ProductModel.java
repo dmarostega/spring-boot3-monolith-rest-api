@@ -25,7 +25,8 @@ public class ProductModel implements Serializable
     private String name;
     private BigDecimal value;
 
-    public String getId() {
+    public String getId() 
+    {
         return this.id;
     }
 
