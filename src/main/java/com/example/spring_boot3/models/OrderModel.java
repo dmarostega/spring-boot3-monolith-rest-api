@@ -1,9 +1,11 @@
 package com.example.spring_boot3.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -26,9 +28,8 @@ public class OrderModel implements Serializable
     @JoinColumn(name = "client_id", nullable = false)
     private ClientModel client; 
 
-    @OneToMany
-    @JoinColumn(name = "order_item_id", nullable = false)
-    private List<OrderItemModel> $orders;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItemModel> orderItems = new ArrayList<OrderItemModel>();
     private Integer number;
 
     public String getId() 
@@ -56,13 +57,13 @@ public class OrderModel implements Serializable
         this.client = client;
     }
 
-    public List<OrderItemModel> get$orders() 
+    public List<OrderItemModel> getOrderItems() 
     {
-        return $orders;
+        return orderItems;
     }
 
-    public void set$orders(List<OrderItemModel> $orders) 
+    public void setOrderItems(List<OrderItemModel> orderItems) 
     {
-        this.$orders = $orders;
+        this.orderItems = orderItems;
     }    
 }

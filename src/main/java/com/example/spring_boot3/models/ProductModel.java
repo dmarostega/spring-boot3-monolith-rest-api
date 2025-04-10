@@ -33,7 +33,7 @@ public class ProductModel implements Serializable
         return this.id;
     }
 
-    @OneToMany(mappedBy =  "products", cascade = CascadeType.ALL )
+    @OneToMany(mappedBy =  "product", cascade = CascadeType.ALL )
     private List<OrderItemModel> ordersItems;
 
 

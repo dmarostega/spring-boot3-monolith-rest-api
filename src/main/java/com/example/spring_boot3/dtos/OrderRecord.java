@@ -1,6 +1,9 @@
 package com.example.spring_boot3.dtos;
 
-import jakarta.validation.constraints.NotBlank;
+import java.util.List;
 
-public record OrderRecord(@NotBlank String client_id, @NotBlank String order_item_id, Integer number) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+
+public record OrderRecord(@NotBlank String client_id,  @NotEmpty List<OrderItemRecordDto> orderItems, Integer number) {
 }
