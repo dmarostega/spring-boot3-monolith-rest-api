@@ -2,11 +2,14 @@ package com.example.spring_boot3.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,6 +32,10 @@ public class ProductModel implements Serializable
     {
         return this.id;
     }
+
+    @OneToMany(mappedBy =  "product", cascade = CascadeType.ALL )
+    private List<OrderItemModel> ordersItems;
+
 
     public String getName()
     {
