@@ -14,12 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestClient.ResponseSpec;
 
 import com.example.spring_boot3.dtos.ClientRecordDto;
-import com.example.spring_boot3.dtos.ProductRecordDto;
 import com.example.spring_boot3.models.ClientModel;
-import com.example.spring_boot3.models.ProductModel;
 import com.example.spring_boot3.repositories.ClientRepository;
 
 import jakarta.validation.Valid;
