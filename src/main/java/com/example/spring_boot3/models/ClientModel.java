@@ -1,14 +1,15 @@
 package com.example.spring_boot3.models;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +24,9 @@ public class ClientModel implements Serializable
     private String name;
     private Integer docNumber;
     private LocalDate birthday;
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<OrderModel> orders;
      
     public String getId() 
     {
@@ -48,17 +52,22 @@ public class ClientModel implements Serializable
     {
         this.docNumber = docNumber;
     }
+
     public LocalDate getBirthday() 
     {
         return this.birthday;
     }
+
     public void setBirthday(LocalDate birthday) 
     {
         this.birthday = birthday;
     }
 
- 
-    
-    
+    public List<OrderModel> getOrders() {
+        return orders;
+    }
 
+    public void setOrders(List<OrderModel> orders) {
+        this.orders = orders;
+    }
 }
