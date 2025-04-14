@@ -3,7 +3,7 @@ Projeto de Estudo (reciclagem) Javaspring boot
 - REST API
 - Sem front-end
 - Configurado para MySql
-Por esse motivo Models possuem:
+Por esse motivo Models possuem: 
     
     @Id
     @Column(name = "id")
